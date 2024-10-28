@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 *,
@@ -32,4 +32,85 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+:root {
+  --primary-text-color: #95d5b2;
+  --primary-text-family: cursive;
+  --primary-text-shadow: 2px 2px 2px black;
+  --primary-text-hover: #52b788;
+  --background-color: #2d6a4f;
+  --sidebar-color: #1b4332;
+  --sidebar-button-height: 3rem;
+  --sidebar-button-width: 17rem;
+  --sidebar-button-text-size: 1.5rem;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 100%;
+  background-color: var(--sidebar-color);
+}
+
+.sidebar {
+  padding: 2rem;
+  position: fixed;
+}
+
+.sidebar > h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 6px black;
+  color: var(--primary-text-color);
+  font-family: var(--primary-text-family);
+}
+
+.sidebar button {
+  background-color: transparent;
+  color: var(--primary-text-color);
+  font-family: var(--primary-text-family);
+  text-shadow: var(--primary-text-shadow);
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  border: none;
+  width: var(--sidebar-button-width);
+  height: var(--sidebar-button-height);
+  font-size: var(--sidebar-button-text-size);
+  align-items: center;
+}
+
+.sidebar button:hover {
+  background-color: var(--primary-text-hover);
+  opacity: 30%;
+}
+
+.add-task {
+  width: var(--sidebar-button-width);
+  height: var(--sidebar-button-height);
+  background-color: transparent;
+  border: none;
+  font-size: var(--sidebar-button-text-size);
+  margin-top: 3rem;
+}
+
+.add-task .icon {
+  color: #d8f3dc;
+  opacity: 100%;
+}
+
+.icon {
+  color: var(--primary-text-color);
+  opacity: 30%;
 }
