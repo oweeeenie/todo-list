@@ -57,10 +57,10 @@ body {
 
 .sidebar-container {
   display: flex;
-  flex-direction: column;
   width: 20rem;
   height: 100%;
   background-color: var(--sidebar-color);
+  position: fixed;
 }
 
 .sidebar {
@@ -83,7 +83,7 @@ body {
   text-shadow: var(--primary-text-shadow);
   cursor: pointer;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   border: none;
   width: var(--sidebar-button-width);
   height: var(--sidebar-button-height);
@@ -113,4 +113,77 @@ body {
 .icon {
   color: var(--primary-text-color);
   opacity: 30%;
+}
+
+.my-projects {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 6px black;
+  color: var(--primary-text-color);
+  font-family: var(--primary-text-family);
+}
+
+.create-project .icon {
+  color: #d8f3dc;
+  opacity: 100%;
+}
+
+footer {
+  width: 100%;
+  color: var(--primary-text-color);
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  text-shadow: var(--primary-text-shadow);
+  font-family: var(--primary-text-family);
+}
+
+.main {
+  display: flex;
+  max-width: 1000px;
+  flex-direction: column;
+  margin-left: 20rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 6px black;
+  color: var(--primary-text-color);
+  font-family: var(--primary-text-family);
+  width: 100%;
+  padding: 2rem 0 0.5rem 0;
+  border-bottom: 2px solid var(--primary-text-color);
+}
+
+.content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.task-box {
+  margin-top: 1rem;
+  padding: 2rem 0 1rem 0;
+  border-bottom: 2px solid var(--primary-text-color);
+  color: var(--primary-text-color);
+  font-family: var(--primary-text-family);
+  text-shadow: var(--primary-text-shadow);
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-description,
+.task-date {
+  font-size: 1rem;
+}
+
+.task-date {
+  color: #d8f3dc;
 }
