@@ -74,5 +74,27 @@
         <div class="content">
       </div>
     </div>
+    <div class="popup hidden">
+      <div class="popup-content">
+        <h2>Add New Task</h2>
+        <label for="task-name">Task Name:</label>
+        <input type="text" id="task-name" placeholder="Enter task name" />
+
+        <label for="task-date">Due Date:</label>
+        <input type="date" id="task-date" />
+
+        <label for="task-desc">Description:</label>
+        <textarea id="task-desc" placeholder="Enter a brief description"></textarea>
+
+        <label for="task-priority">
+          <input type="checkbox" id="task-priority" /> High Priority
+        </label>
+
+        <div class="popup-buttons">
+          <button id="save-task">Save Task</button>
+          <button id="close-popup">Cancel</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
