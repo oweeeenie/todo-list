@@ -208,12 +208,14 @@ footer {
 }
 
 .popup-content {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
   padding: 20px;
   border-radius: 8px;
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: var(--primary-text-family);
+  text-shadow: var(--primary-text-shadow);
 }
 
 .popup-content h2 {
@@ -233,8 +235,8 @@ footer {
   margin-top: 5px;
   border-radius: 4px;
   border: none;
-  background-color: #444;
-  color: #fff;
+  background-color: var(--sidebar-color);
+  color: var(--primary-text-color);
 }
 
 .popup-content textarea {
@@ -253,10 +255,10 @@ footer {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #555;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
 }
 
 .popup-buttons button:hover {
-  background-color: #666;
+  background-color: var(--primary-text-hover);
 }
