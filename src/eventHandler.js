@@ -20,9 +20,15 @@ export function setupEventListeners() {
     const taskName = document.querySelector('#task-name').value;
     const taskDate = document.querySelector('#task-date').value;
     const taskDescription = document.querySelector('#task-desc').value;
-    const taskPriority = document.querySelector('#task-priority').checked;
+    const taskPriority = document.querySelector(
+      'input[name="priority"]:checked'
+    ).value;
+
     addTask(taskName, taskDescription, taskDate, taskPriority);
     popup.classList.add('hidden'); // this mf righ there closes out add task when i add something.
+    document.querySelector('#task-name').value = '';
+    document.querySelector('#task-date').value = '';
+    document.querySelector('#task-desc').value = '';
     const tasks = getTasks();
     UIController.renderTaskList(tasks);
   });
