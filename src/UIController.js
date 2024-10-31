@@ -2,6 +2,7 @@ import { getTasks } from './taskManager.js';
 
 const UIController = (() => {
   const taskContainer = document.querySelector('.content');
+  const projectContainer = document.querySelector('.projects-list');
 
   const clearTaskList = () => {
     taskContainer.innerHTML = '';
@@ -44,8 +45,30 @@ const UIController = (() => {
     });
   };
 
+  const clearProjectList = () => {
+    const refreshProjectBox = document.querySelectorAll('.project-box');
+
+    refreshProjectBox.forEach((project) => {
+      project.remove();
+    });
+  };
+
+  const renderProjectList = (projects) => {
+    projects.forEach((project) => {
+      const projectBox = document.createElement('button');
+      projectBox.className = 'project-box';
+
+      projectBox.innerHTML = `
+      <span> <i class="fa-regular fa-folder"></i> </span>
+      <h3>${project.name}</h3>`;
+      projectContainer.appendChild(projectBox);
+    });
+  };
+
   return {
     renderTaskList,
+    renderProjectList,
+    clearProjectList,
   };
 })();
 

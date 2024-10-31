@@ -1,3 +1,5 @@
+import UIController from './UIController';
+
 const tasks = [];
 
 const addTask = (name, description, date, priority) => {
@@ -17,12 +19,9 @@ export { addTask, getTasks };
 const projects = [];
 
 export function addProject(name) {
-  if (name) {
-    projects.push({ name });
-    console.log(`Project added: ${name}`);
-  } else {
-    console.error('Project name is required.');
-  }
+  projects.push({ name });
+  UIController.clearProjectList();
+  UIController.renderProjectList(getProjects());
 }
 
 // THIS GETS ALL PROJECTS.

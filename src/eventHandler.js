@@ -1,5 +1,5 @@
 import { addTask, getTasks } from './taskManager.js';
-import UIController from './uiController.js';
+import UIController from './UIController.js';
 import { addProject, getProjects } from './taskManager.js';
 
 const addTaskButton = document.querySelector('.add-task');
@@ -49,12 +49,10 @@ export function setupEventListeners() {
   saveProjectButton.addEventListener('click', (event) => {
     event.preventDefault();
     const projectName = document.querySelector('#project-name').value;
-
     addProject(projectName);
     projectPopup.classList.add('hidden');
     document.querySelector('#project-name').value = '';
 
     const projects = getProjects();
-    UIController.renderProjectList(projects);
   });
 }
