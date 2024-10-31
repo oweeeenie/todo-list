@@ -47,61 +47,79 @@
 
             <h2 class="my-projects">My projects</h2>
 
-            <button class="sidebar-buttons">
-              <span class="icon"><i class="fa-regular fa-folder"></i> </span>
-              School
-            </button>
+            <div class="projects-list">
+              <button class="sidebar-buttons">
+                <span class="icon"><i class="fa-regular fa-folder"></i> </span>
+                School
+              </button>
 
-            <button class="sidebar-buttons">
-              <span class="icon"><i class="fa-regular fa-folder"></i> </span>
-              Work
-            </button>
+              <button class="sidebar-buttons">
+                <span class="icon"><i class="fa-regular fa-folder"></i> </span>
+                Work
+              </button>
 
-            <button class="sidebar-buttons">
-              <span class="icon"><i class="fa-regular fa-folder"></i> </span>
-              Code
-            </button>
+              <button class="sidebar-buttons">
+                <span class="icon"><i class="fa-regular fa-folder"></i> </span>
+                Code
+              </button>
 
-            <button class="create-project">
-              <span class="icon"><i class="fa-solid fa-circle-plus"></i> </span>
-              Create a project
-            </button>
+              <button class="create-project">
+                <span class="icon"
+                  ><i class="fa-solid fa-circle-plus"></i>
+                </span>
+                Create a project
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div class="main">
         <div class="header">All tasks</div>
-        <div class="content">
+        <div class="content"></div>
       </div>
-    </div>
-    <div class="popup hidden">
-      <div class="popup-content">
-        <h2>Add New Task</h2>
-        <label for="task-name">Task Name:</label>
-        <input type="text" id="task-name" placeholder="Enter task name" />
+      <div class="popup hidden">
+        <div class="popup-content">
+          <h2>Add New Task</h2>
+          <label for="task-name">Task Name:</label>
+          <input type="text" id="task-name" placeholder="Enter task name" />
 
-        <label for="task-date">Due Date:</label>
-        <input type="date" id="task-date" />
+          <label for="task-date">Due Date:</label>
+          <input type="date" id="task-date" />
 
-        <label for="task-desc">Description:</label>
-        <textarea id="task-desc" placeholder="Enter a brief description"></textarea>
+          <label for="task-desc">Description:</label>
+          <textarea
+            id="task-desc"
+            placeholder="Enter a brief description"
+          ></textarea>
 
-        <label>Priority:</label>
-        <div>
-          <label>
-            <input type="radio" name="priority" value="high" /> High
-          </label>
-          <label>
-            <input type="radio" name="priority" value="medium" /> Medium
-          </label>
-          <label>
-            <input type="radio" name="priority" value="low" /> Low
-          </label>
+          <label>Priority:</label>
+          <div>
+            <label>
+              <input type="radio" name="priority" value="high" /> High
+            </label>
+            <label>
+              <input type="radio" name="priority" value="medium" /> Medium
+            </label>
+            <label>
+              <input type="radio" name="priority" value="low" /> Low
+            </label>
+          </div>
+
+          <div class="popup-buttons">
+            <button id="save-task">Save Task</button>
+            <button id="close-popup">Cancel</button>
+          </div>
         </div>
+      </div>
+      <div class="popup popup-project hidden">
+      <div class="popup-content">
+        <h2>Add New Project</h2>
+        <label for="project-name">Project Name:</label>
+        <input type="text" id="project-name" placeholder="Enter project name" />
 
         <div class="popup-buttons">
-          <button id="save-task">Save Task</button>
-          <button id="close-popup">Cancel</button>
+          <button id="save-project">Save Project</button>
+          <button id="close-project-popup">Cancel</button>
         </div>
       </div>
     </div>
