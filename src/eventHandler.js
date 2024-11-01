@@ -11,6 +11,15 @@ const projectPopup = document.querySelector('.popup-project');
 const closeProjectPopupButton = document.querySelector('#close-project-popup');
 const saveProjectButton = document.querySelector('#save-project');
 
+// logic for overdue, today and all tasks.
+const overdueTasksContainer = document.querySelector('.overdue-tasks');
+const todayTasksContainer = document.querySelector('.today-tasks');
+const allTasksContainer = document.querySelector('.all-tasks');
+
+const allTasksButton = document.querySelector('#all-tasks-btn');
+const todayTasksButton = document.querySelector('#today-tasks-btn');
+const overdueTasksButton = document.querySelector('#overdue-tasks-btn');
+
 export function setupEventListeners() {
   addTaskButton.addEventListener('click', () => {
     popup.classList.remove('hidden');
@@ -54,5 +63,25 @@ export function setupEventListeners() {
     document.querySelector('#project-name').value = '';
 
     const projects = getProjects();
+  });
+
+  allTasksButton.addEventListener('click', () => {
+    todayTasksContainer.classList.add('hidden');
+    allTasksContainer.classList.remove('hidden');
+    overdueTasksContainer.classList.add('hidden');
+  });
+
+  todayTasksButton.addEventListener('click', () => {
+    todayTasksContainer.classList.remove('hidden');
+    allTasksContainer.classList.add('hidden');
+    overdueTasksContainer.classList.add('hidden');
+  });
+
+  overdueTasksButton.addEventListener('click', () => {
+    todayTasksContainer.classList.add('hidden');
+    allTasksContainer.classList.add('hidden');
+    overdueTasksContainer.classList.remove('hidden');
+
+    UIController.renderOverdueTasks();
   });
 }

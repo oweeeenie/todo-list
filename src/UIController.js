@@ -3,7 +3,9 @@ import { getOverdueTasks } from './taskManager.js';
 const UIController = (() => {
   const taskContainer = document.querySelector('.content');
   const projectContainer = document.querySelector('.projects-list');
-  const overdueTaskList = document.querySelector('.overdue-task-list');
+  const overdueTaskList = document.querySelector('#overdue-task-list');
+  const allTasksList = document.querySelector('#all-task-list');
+  const todayTasksList = document.querySelector('#today-task-list');
 
   const clearTaskList = () => {
     taskContainer.innerHTML = '';
@@ -66,28 +68,50 @@ const UIController = (() => {
     });
   };
 
+  function renderOverdueTasks() {
+    const overdueTasks = getOverdueTasks();
+
+    clearOverdueTaskSection();
+
+    const allTasksSection = document.querySelector('.all-tasks');
+    const todayTasksSection = document.querySelector('.today-tasks');
+    const overdueTasksSection = document.querySelector('.overdue-tasks');
+
+    if (!allTasksSection || !todayTasksSection || !overdueTasksSection) {
+      console.error('One or more sections are not available in the DOM.');
+      return;
+    }
+
+    allTasksSection.classList.add('hidden');
+    todayTasksSection.classList.add('hidden');
+    overdueTasksSection.classList.remove('hidden');
+
+    if (overdueTasks.length === 0) {
+      const noTasksMessage = document.createElement('li');
+      noTasksMessage.textContent = 'No overdue tasks';
+      overdueTasksSection.appendChild(noTasksMessage);
+    } else {
+      overdueTasks.forEach((task) => {
+        const overdueListItem = document.createElement('li');
+        overdueListItem.innerHTML = `${task.name} - Due: ${task.date}`;
+        overdueTasksSection.appendChild(overdueListItem);
+      });
+    }
+  }
+
+  function clearOverdueTaskSection() {
+    overdueTaskList.innerHTML = '';
+  }
+
   return {
     // this is dope, this allows me to use the methods inside of UIController outside of its scope.
     renderTaskList,
     renderProjectList,
     clearProjectList,
     getOverdueTaskList: () => overdueTaskList,
+    renderOverdueTasks,
+    clearOverdueTaskSection,
   };
 })();
-
-function renderOverdueTasks() {
-  const overdueTasks = getOverdueTasks();
-  clearOverdueTaskSection();
-  overdueTasks.forEach((task) => {
-    const overdueListItem = document.createElement('li');
-    overdueListItem.innerHTML = `${task.name} - Due: ${task.date}`;
-    overdueTaskList.appendChild(overdueListItem);
-  });
-}
-
-function clearOverdueTaskSection() {
-  const overdueTasks = document.querySelector('#overdue-task-list');
-  overdueTasks.innerHTML = '';
-}
 
 export default UIController;
