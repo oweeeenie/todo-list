@@ -14,7 +14,6 @@ const addTask = (name, description, date, priority) => {
 };
 
 const getTasks = () => tasks;
-export { addTask, getTasks };
 
 const projects = [];
 
@@ -28,3 +27,12 @@ export function addProject(name) {
 export function getProjects() {
   return projects;
 }
+
+function getOverdueTasks() {
+  const allTasks = getTasks();
+  const overdueTasks = allTasks.filter((task) => {
+    return new Date(task.date) < new Date();
+  });
+  return overdueTasks;
+}
+export { addTask, getTasks, getOverdueTasks };

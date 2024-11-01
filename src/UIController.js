@@ -1,8 +1,9 @@
-import { getTasks } from './taskManager.js';
+import { getOverdueTasks } from './taskManager.js';
 
 const UIController = (() => {
   const taskContainer = document.querySelector('.content');
   const projectContainer = document.querySelector('.projects-list');
+  const overdueTaskList = document.querySelector('.overdue-task-list');
 
   const clearTaskList = () => {
     taskContainer.innerHTML = '';
@@ -66,10 +67,27 @@ const UIController = (() => {
   };
 
   return {
+    // this is dope, this allows me to use the methods inside of UIController outside of its scope.
     renderTaskList,
     renderProjectList,
     clearProjectList,
+    getOverdueTaskList: () => overdueTaskList,
   };
 })();
+
+function renderOverdueTasks() {
+  const overdueTasks = getOverdueTasks();
+  clearOverdueTaskSection();
+  overdueTasks.forEach((task) => {
+    const overdueListItem = document.createElement('li');
+    overdueListItem.innerHTML = `${task.name} - Due: ${task.date}`;
+    overdueTaskList.appendChild(overdueListItem);
+  });
+}
+
+function clearOverdueTaskSection() {
+  const overdueTasks = document.querySelector('#overdue-task-list');
+  overdueTasks.innerHTML = '';
+}
 
 export default UIController;
