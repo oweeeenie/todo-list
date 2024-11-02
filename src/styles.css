@@ -275,3 +275,7 @@ footer {
 span {
   opacity: 30%;
 }
+
+.hidden {
+  display: none;
+}

@@ -100,7 +100,13 @@ const UIController = (() => {
   }
 
   function clearOverdueTaskSection() {
-    overdueTaskList.innerHTML = '';
+    const overdueTaskSection = document.getElementById('#overdue-tasks'); // Adjust if your selector is different
+    console.log('overdueTaskSection:', overdueTaskSection); // Check if this logs `null`
+    if (overdueTaskSection) {
+      overdueTaskSection.innerHTML = ''; // Clear content
+    } else {
+      console.error('overdueTaskSection not found!');
+    }
   }
 
   return {

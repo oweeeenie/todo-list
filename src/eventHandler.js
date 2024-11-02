@@ -69,12 +69,14 @@ export function setupEventListeners() {
     todayTasksContainer.classList.add('hidden');
     allTasksContainer.classList.remove('hidden');
     overdueTasksContainer.classList.add('hidden');
+    console.log('showing all tasks');
   });
 
   todayTasksButton.addEventListener('click', () => {
     todayTasksContainer.classList.remove('hidden');
     allTasksContainer.classList.add('hidden');
     overdueTasksContainer.classList.add('hidden');
+    console.log('showing todays tasks');
   });
 
   overdueTasksButton.addEventListener('click', () => {

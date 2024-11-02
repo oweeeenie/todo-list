@@ -11,7 +11,7 @@ const addTask = (name, description, date, priority) => {
     completed: false,
   };
   tasks.push(newTask);
-  UIController.renderOverdueTasks();
+  UIController.renderOverdueTasks(getTasks());
 };
 
 const getTasks = () => tasks;
